@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diplomacy & Treaties Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== HEADER / NAV ===== -->
+<header>
+    <nav>
+      <button class="active" onclick="showSection('search', this)">Search</button>
+      <button onclick="showSection('treaties', this)">Treaties</button>
+      <button onclick="showSection('compare', this)">Compare</button>
+      <button onclick="showSection('timeline', this)">Timeline</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== SEARCH SECTION ===== -->
+  <div id="section-search" class="section active">
+    <div class="hero">
+      <h1>Explore Global Diplomacy</h1>
+      <p>Search any country to see who it works with, trades with, and belongs to</p>
+      <div class="search-bar">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="searchInput" placeholder="Type a country name..." autocomplete="off" />
+        <div class="dropdown" id="dropdown"></div>
+      </div>
+    </div>
+
+    <div id="countryResult">
+      <div class="empty-state">
+        <div class="icon">&#127758;</div>
+        <p>Search for a country above to see its diplomatic profile</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TREATIES SECTION ===== -->
+  <div id="section-treaties" class="section">
+    <div class="section-header">
+      <h2>Key International Treaties</h2>
+      <div class="line"></div>
+    </div>
+    <p class="section-intro">These are 4 of the most important agreements that shape how countries work together today.</p>
+    <div id="treatiesList"></div>
+  </div>
+
+  <!-- ===== COMPARE SECTION ===== -->
+  <div id="section-compare" class="section">
+    <div class="section-header">
+      <h2>Compare Two Countries</h2>
+      <div class="line"></div>
+    </div>
+    <p class="section-intro">Pick two countries to see how they differ and what kind of relationship they have.</p>
+    <div class="compare-controls">
+      <select class="compare-select" id="compareA" onchange="runCompare()">
+        <option value="">Select first country...</option>
+      </select>
+      <div class="vs-badge">VS</div>
+      <select class="compare-select" id="compareB" onchange="runCompare()">
+        <option value="">Select second country...</option>
+      </select>
+    </div>
+    <div id="compareResult">
+      <div class="empty-state">
+        <div class="icon">&#9878;</div>
+        <p>Choose two countries above to compare them</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TIMELINE SECTION ===== -->
+  <div id="section-timeline" class="section">
+    <div class="section-header">
+      <h2>Timeline of International Agreements</h2>
+      <div class="line"></div>
+    </div>
+    <p class="section-intro">Major events in diplomacy — from the birth of the UN to modern climate deals.</p>
+    <div class="treaties-filters" style="margin-bottom:2rem;">
+      <button class="filter-btn active" onclick="filterTimeline('all', this)">All Events</button>
+      <button class="filter-btn" onclick="filterTimeline('peace', this)">Peace</button>
+      <button class="filter-btn" onclick="filterTimeline('trade', this)">Trade</button>
+    <div class="timeline" id="timelineList"></div>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
